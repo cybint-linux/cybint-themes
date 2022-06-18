@@ -1,0 +1,63 @@
+etc/skel/.face etc/skel/.face.icon
+
+#usr/share/backgrounds/cybint/default usr/share/backgrounds/cybint/default
+
+usr/share/gtksourceview-4.0/styles/CYBINT-Light.xml usr/share/gtksourceview-3.0/styles/CYBINT-Light.xml
+usr/share/gtksourceview-4.0/styles/CYBINT-Dark.xml usr/share/gtksourceview-3.0/styles/CYBINT-Dark.xml
+
+
+usr/share/qtermwidget5/color-schemes/CYBINT-Light.colorscheme usr/share/konsole/CYBINT-Light.colorscheme
+usr/share/qtermwidget5/color-schemes/CYBINT-Dark.colorscheme usr/share/konsole/CYBINT-Dark.colorscheme
+
+
+
+
+
+usr/share/icons/Flat-Remix-Blue-Dark/devices usr/share/icons/Flat-Remix-Blue-Light/devices
+usr/share/icons/Flat-Remix-Blue-Dark/emblems usr/share/icons/Flat-Remix-Blue-Light/emblems
+
+
+
+#usr/share/icons/Flat-Remix-Blue-Dark/gtk-3.0/assets usr/share/icons/Flat-Remix-Blue-Light/gtk-3.0/assets
+usr/share/icons/Flat-Remix-Blue-Dark/gtk-3.0/assets usr/share/icons/Flat-Remix-Blue-Light/gtk-3.0/assets
+#usr/share/icons/Flat-Remix-Blue-Dark/gtk-4.0/assets usr/share/icons/Flat-Remix-Blue-Light/gtk-4.0/assets
+usr/share/icons/Flat-Remix-Blue-Dark/gtk-4.0/assets usr/share/icons/Flat-Remix-Blue-Light/gtk-4.0/assets
+
+
+
+#lrwxrwxrwx 1 coder coder 32 Apr  5 21:38 ./share/themes/CYBINT-Light/gtk-4.0/assets -> ../../CYBINT-Dark/gtk-3.0/assets
+#lrwxrwxrwx 1 coder coder 32 Apr  5 21:38 ./share/themes/CYBINT-Light/gtk-3.0/assets -> ../../CYBINT-Dark/gtk-3.0/assets
+
+#usr/share/themes/CYBINT-Dark/gtk-3.0/assets usr/share/themes/CYBINT-Light/gtk-4.0/assets
+#usr/share/themes/CYBINT-Dark/gtk-3.0/assets usr/share/themes/CYBINT-Light/gtk-3.0/assets
+
+
+
+
+
+#lrwxrwxrwx 1 coder coder 51 Apr  5 21:38 ./share/konsole/CYBINT-Dark.colorscheme -> ../qtermwidget5/color-schemes/CYBINT-Dark.colorscheme
+#lrwxrwxrwx 1 coder coder 52 Apr  5 21:38 ./share/konsole/CYBINT-Light.colorscheme -> ../qtermwidget5/color-schemes/CYBINT-Light.colorscheme
+
+
+usr/share/qtermwidget5/color-schemes/CYBINT-Dark.colorscheme  usr/share/konsole/CYBINT-Dark.colorscheme
+usr/share/qtermwidget5/color-schemes/CYBINT-Light.colorscheme  usr/share/konsole/CYBINT-Light.colorscheme
+
+
+
+#lrwxrwxrwx 1 coder coder 43 Apr  5 21:38 ./share/gtksourceview-3.0/styles/CYBINT-Light.xml -> ../../gtksourceview-4/styles/CYBINT-Light.xml
+#lrwxrwxrwx 1 coder coder 42 Apr  5 21:38 ./share/gtksourceview-3.0/styles/CYBINT-Dark.xml -> ../../gtksourceview-4/styles/CYBINT-Dark.xml
+
+usr/share/gtksourceview-4/styles/CYBINT-Light.xml usr/share/gtksourceview-3.0/styles/CYBINT-Light.xml
+usr/share/gtksourceview-4/styles/CYBINT-Dark.xml usr/share/gtksourceview-3.0/styles/CYBINT-Dark.xml
+
+
+
+
+usr/share/icons/Flat-Remix-Blue-Dark/animations usr/share/icons/Flat-Remix-Blue-Light/animations
+usr/share/icons/Flat-Remix-Blue-Dark/status usr/share/icons/Flat-Remix-Blue-Light/status
+usr/share/icons/Flat-Remix-Blue-Dark/mimetypes usr/share/icons/Flat-Remix-Blue-Light/mimetypes
+usr/share/icons/Flat-Remix-Blue-Dark/apps usr/share/icons/Flat-Remix-Blue-Light/apps
+usr/share/icons/Flat-Remix-Blue-Dark/categories usr/share/icons/Flat-Remix-Blue-Light/categories
+usr/share/icons/Flat-Remix-Blue-Dark/emblems usr/share/icons/Flat-Remix-Blue-Light/emblems
+usr/share/icons/Flat-Remix-Blue-Dark/places usr/share/icons/Flat-Remix-Blue-Light/places
+usr/share/icons/Flat-Remix-Blue-Dark/status usr/share/icons/Flat-Remix-Blue-Light/status

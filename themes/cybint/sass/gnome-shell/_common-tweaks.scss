@@ -1,0 +1,405 @@
+$overview_transparent_bg: transparentize(white, .9);
+$dialog_box_shadow: 0 2px 8px 0 transparentize(black, .6);
+
+/* OSD */
+$_osd_color: if($variant=='light', black, $fg_color);
+%osd_panel {
+  font-weight: bold;
+  background-color: $bg_color;
+  color: $fg_color;
+  border: 1px solid if($variant=='light', transparentize(black, 0.85), $borders_color);
+  box-shadow: 0 4px 10px transparentize(black, .8);
+
+  StIcon {
+    color: $_osd_color;
+    icon-shadow: 0 0 6px transparentize(black, .6);
+  }
+}
+
+.osd-window {
+  .level {
+    -barlevel-background-color: transparentize($_osd_color, if($variant=='light', 0.7, 0.9));
+    -barlevel-active-background-color: $_osd_color;
+  }
+}
+
+/* Slider */
+
+.slider {
+  height: 1.1em;
+  -barlevel-height: .35em;
+  -barlevel-background-color: $borders_color;
+  -barlevel-border-color: $selected_bg_color;
+  -barlevel-active-background-color: $selected_bg_color;
+  -barlevel-overdrive-color: $destructive_color;
+  -barlevel-overdrive-separator-width: 0.1em;
+  -barlevel-border-width: 0;
+
+  -slider-handle-radius: 0;
+}
+
+/* Check Boxes */
+
+.check-box {
+  StBin {
+    background-image: if($variant == 'light', url("assets/checkbox-off.svg"), 
+                                              url("assets/checkbox-off-dark.svg"));
+  }
+
+  &:focus StBin { background-image: if($variant == 'light', url("assets/checkbox-off-focused.svg"),
+                                                            url("assets/checkbox-off-focused-dark.svg")); }
+  &:checked StBin { background-image: if($variant == 'light', url("assets/checkbox.svg"),
+                                                              url("assets/checkbox-dark.svg")); }
+  &:focus:checked StBin { background-image: if($variant == 'light', url("assets/checkbox-focused.svg"),
+                                                                    url("assets/checkbox-focused-dark.svg")); }
+}
+
+/* Switches */
+.toggle-switch {
+  background-image: if($variant == 'light', url("assets/toggle-off.svg"), 
+                                            url("assets/toggle-off-dark.svg"));
+  &:checked {
+    background-image: if($variant == 'light', url("assets/toggle-on.svg"), 
+                                              url("assets/toggle-on-dark.svg"));
+  }
+}
+
+// menu items
+.popup-menu-item {
+    &.selected, &:active {
+        background-color: $popover_hover_color;
+        color: $fg_color;
+    }
+}
+
+/* App Switcher */
+// switcher onscreen panel
+.switcher-list {
+  .item-box {
+    &:outlined {
+      padding: 6px;
+      border: 3px solid $selected_bg_color;
+    }
+
+    &:selected {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+      text-shadow: 0 1px 4px transparentize(black, 0.6);
+    }
+  }
+}
+
+/* Workspace Switcher */
+.ws-switcher-box { border: none }
+
+.workspace-switcher-container { padding: 7px; }
+
+// active workspace in the switcher
+.ws-switcher-active-up,
+.ws-switcher-active-down,
+.ws-switcher-active-left,
+.ws-switcher-active-right {
+  //box-shadow: 0 0px 6px transparentize(black, .5);
+}
+
+/* Window Picker */
+
+// Window titles
+.window-caption {
+  color: black;
+  background-color: white;
+  box-shadow: $dialog_box_shadow;
+}
+
+// Close button
+.window-close {
+  background-image: url("assets/close-window.svg");
+  background-size: 32px;
+  background-color: transparent;
+  box-shadow: none;
+  color: transparent;
+  height: 32px;
+  width: 32px;
+  transition-duration: .2s;
+
+  &:hover {
+    background-image: url("assets/close-window-hover.svg");
+    background-color: transparent;
+  }
+
+  &:active {
+    background-image: url("assets/close-window-active.svg");
+    background-color: transparent;
+    color: transparent;
+    transition-duration: 0s;
+  }
+}
+
+/* Tiled window previews */
+
+.tile-preview-left.on-primary,
+.tile-preview-right.on-primary,
+.tile-preview-left.tile-preview-right.on-primary{ border-radius: 0; }
+
+/* TOP BAR */
+#panel {
+  $_panel_bg: transparentize($bg_color, .2);
+  $_panel_fg: if($variant=='light', black, white);
+  $_panel_text_shadow: 0 1px 2px transparentize(black, 0.5);
+  background: $_panel_bg;
+  text-shadow: $_panel_text_shadow;
+
+  .popup-menu-arrow { width: 0; }
+
+  StIcon { icon-shadow: $_panel_text_shadow; }
+
+  &.unlock-screen,
+  &.login-screen,
+  &.lock-screen,
+  &:overview {
+    background-color: transparent;
+    .panel-button {
+      &, &:hover, &:active, &:focus, &:overview, &:checked { color: white; }
+    }
+  }
+
+  .panel-corner { -panel-corner-radius: 0; }
+
+  .panel-button {
+    color: $_panel_fg;
+    &:active, &:focus, &:overview, &:checked {
+      color: $_panel_fg;
+      box-shadow: inset 0 0 0 100px rgba(255, 255, 255, if($variant == 'light', 1, .2));
+    }
+  }
+
+  .panel-button.clock-display {
+    // Move highlight from .panel-button to .clock
+    &:active, &:overview, &:focus, &:checked {
+      box-shadow: none;
+
+      .clock {
+        box-shadow: inset 0 0 0 100px rgba(255, 255, 255, if($variant == 'light', 1, .2));
+      }
+    }
+  }
+
+  #panelActivities.panel-button {
+    margin-left: .4em;
+    StLabel {
+      background-image: if($variant == 'light', url("assets/view-grid-symbolic.svg"),
+                                          url("assets/view-grid-symbolic-dark.svg"));
+      background-size: contain;
+      width: 1.5em;
+      height: 1.5em;
+      color: transparent;
+    }
+
+    &:overview StLabel {
+      background-image: url("assets/view-grid-symbolic-dark.svg");
+    }
+  }
+}
+
+/* Date/Time Menu */
+// notification styling
+@mixin notification_bubble($flat: false) {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $base_border_radius + 2px;
+  margin: $base_margin;
+
+  @if $flat {
+    @include button(undecorated);
+  } @else {
+    @include button(normal);
+  }
+
+  &:focus {
+    @include button(focus);
+  }
+
+  &:hover {
+    @include button(hover);
+    box-shadow: none;
+  }
+
+  &:active {
+    @include button(active);
+  }
+}
+
+// overall menu
+#calendarArea {
+  background-image: if($variant == 'light', url("assets/cybint.svg"),
+                                            url("assets/cybint-dark.svg"));
+  background-size: contain;
+}
+
+.events-section-title { padding: 1em; }
+
+.datemenu-today-button {
+  @include notification_bubble($flat: true);
+
+  .date-label {
+    font-size: 1.5em;
+    font-weight: 300;
+  }
+}
+
+.calendar {
+  @include notification_bubble($flat: true);
+
+  .pager-button {
+    &:hover, &:focus { background-color: $popover_hover_color }
+  }
+
+  .calendar-day-base {
+    &:hover, &:focus,
+    &:active,&:selected {
+      color: $fg_color;
+      background-color: $popover_hover_color;
+    }
+  }
+
+  .calendar-today {
+    &:hover,&:focus {
+      background-color: $popover_hover_color;
+      color: $fg_color;
+    }
+    &:active,&:selected {
+      background: $selected_bg_color;
+      color: $selected_fg_color;
+      &:hover,&:focus {
+        background-color: $popover_hover_color;
+        color: $fg_color;
+      }
+    }
+  }
+}
+
+/* Events */
+.events-button { @include notification_bubble($flat: true); }
+
+/* World clocks */
+
+.world-clocks-button {
+  @include notification_bubble($flat: true);
+}
+
+.weather-button {
+  @include notification_bubble($flat: true);
+}
+
+
+/* Search */
+
+// search entry
+.search-entry {
+  color: black;
+  text-shadow: 0px 1px 2px rgba(black, 0.9);
+  font-weight: bold;
+  background-color: $overview_transparent_bg;
+  border-radius: 999px;
+  font-size: 1.1em;
+  transition-duration: 200ms;
+
+  StLabel.hint-text { color: $osd_fg_color; }
+
+  &, &:focus, &:hover {
+    width: 21em;
+    padding: .6em .8em;
+    border: none;
+  }
+
+  &:focus, &:hover {
+    background-color: white;
+    color: black;
+    font-weight: normal;
+    box-shadow: none;
+    text-shadow: none;
+
+    StLabel.hint-text { color: black; }
+
+    .search-entry-icon {
+      color: black;
+      icon-shadow: none;
+    }
+  }
+
+  .search-entry-icon {
+    color: white;
+    icon-shadow: 0px 1px 2px rgba(black, 0.9);
+  }
+}
+
+// search results
+.search-section-content {
+  background-color: $overview_transparent_bg;
+  box-shadow: none;
+  border: none;
+}
+
+// search result provider
+.search-provider-icon {
+  .list-search-provider-content {
+    .list-search-provider-details { font-weight: bold; }
+  }
+}
+
+/* DASHBOARD */
+
+#dash {
+  color: $osd_fg_color;
+  background-color: transparent;
+  border: none;
+  border-color: transparent;
+
+  .overview-icon StIcon {
+    color: white;
+    icon-shadow: 0 2px 6px transparentize(black, .6);
+  }
+}
+
+.dash-background {
+  background: $overview_transparent_bg;
+  //box-shadow: 0 2px 8px 0 transparentize(black, .2);
+}
+
+.dash-separator { background: $overview_transparent_bg; }
+
+.show-apps {
+  &:focus,
+  &:checked {
+    .overview-icon {
+      background-color: $overview_transparent_bg;
+      color: black;
+    }
+  }
+}
+
+/* App Folders */
+.app-well-app.app-folder {
+  &, & .overview-icon.overview-icon-with-label {
+      background-color: $overview_transparent_bg
+  }
+  //box-shadow: 0 2px 5px black;
+
+  &:checked { background: black; }
+}
+
+.app-folder-dialog {
+  background: black;
+  box-shadow: 0 0 20px lighten(black, 1%);
+
+  & .folder-name-container {
+      & .edit-folder-button {
+          &, &:hover, &:active {
+              background: white;
+              color: black;
+          }
+      }
+  }
+}
+
+.app-folder-dialog-container { width: 720px; }

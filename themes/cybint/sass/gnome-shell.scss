@@ -1,0 +1,7 @@
+$variant: 'light';
+
+@import "common/_colors"; //use gtk colors
+@import "gnome-shell/upstream/gnome-shell-sass/_drawing";
+@import "gnome-shell/upstream/gnome-shell-sass/_common";
+@import "gnome-shell/upstream/gnome-shell-sass/_widgets";
+@import "gnome-shell/_common-tweaks";

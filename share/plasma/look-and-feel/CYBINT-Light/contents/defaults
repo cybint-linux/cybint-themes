@@ -1,0 +1,12 @@
+[kdeglobals][General]
+ColorScheme=CYBINTLight
+
+[kwinrc][org.kde.kdecoration2]
+library=org.cybint.cybint
+theme=CYBINT
+
+[kdeglobals][Icons]
+Theme=Flat-Remix-Blue-Light
+
+[plasmarc][Theme]
+name=cybint

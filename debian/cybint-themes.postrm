@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+FILES_TO_DIVERT="
+/etc/gtk-2.0/gtkrc /etc/lightdm/lightdm-gtk-greeter.conf /etc/plymouth/plymouthd.conf /etc/sddm.conf.d/kde_settings.conf /etc/xdg/compton.conf /etc/xdg/gtk-3.0/settings.ini /etc/xdg/kdeglobals /etc/xdg/kickoffrc /etc/xdg/konsolerc /etc/xdg/kscreenlockerrc /etc/xdg/kwinrc /etc/xdg/menus/xfce-settings-manager.menu /etc/xdg/plasmarc /etc/xdg/qt5ct/qt5ct.conf /etc/xdg/qterminal.org/qterminal.ini /etc/xdg/xfce4/helpers.rc /etc/xdg/xfce4/panel/default.xml /etc/xdg/xfce4/terminal/terminalrc /etc/xdg/xfce4/whiskermenu/defaults.rc /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml /etc/xdg/Thunar/uca.xml /etc/xdg/Thunar/accels.scm /etc/xdg/yakuakerc
+" # END FILES_TO_DIVERT
+
+case "$1" in
+    remove)
+	for file in $FILES_TO_DIVERT; do
+	    rm -f "$file"
+	    dpkg-divert --rename --package cybint-themes \
+	            --divert "$file.original" \
+		    --remove "$file"
+	done
+	# # Recover GNOME backgrounds
+	# file=/usr/share/gnome-background-properties/gnome-backgrounds.xml
+	# diverted_file=$(dirname $file)/disabled/$(basename $file)
+	# if [ -e "$diverted_file" ]; then
+	#     dpkg-divert --rename --package cybint-themes \
+	# 		--divert "$diverted_file" \
+	# 		--remove "$file"
+	#     rmdir "$(dirname $diverted_file)" || :
+	# fi
+    ;;
+esac
+
+#DEBHELPER#

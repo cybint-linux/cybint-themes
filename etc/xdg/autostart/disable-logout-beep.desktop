@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Disable logout beep
+Exec=xset b off
+Terminal=false
+OnlyShowIn=XFCE;

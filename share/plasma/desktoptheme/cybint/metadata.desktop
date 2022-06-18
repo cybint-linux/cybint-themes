@@ -1,0 +1,30 @@
+[Desktop Entry]
+Name=CYBINT
+Comment=CYBINT Plasma Theme
+
+X-KDE-PluginInfo-Author=CYBINT Dev Team
+X-KDE-PluginInfo-Email=dev@cybint-linux.com
+X-KDE-PluginInfo-Name=CYBINT
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=https://cybint-linux.com
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL-3.0+
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-API=5.0
+
+[Settings]
+FallbackTheme=default
+
+[Wallpaper]
+defaultWallpaperTheme=Cybint
+defaultFileSuffix=.png
+defaultWidth=3840
+defaultHeight=2160
+
+[ContrastEffect]
+enabled=true
+contrast=0.2
+#intensity is disabled, in order to auto adjust to the chosen theme color
+#intensity=2.0
+saturation=1.7

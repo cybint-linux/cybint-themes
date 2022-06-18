@@ -1,0 +1,32 @@
+Source: cybint-themes
+Section: misc
+Priority: optional
+Maintainer: CYBINT Dev Team <dev@cybint-linux.com>
+Uploaders: Tom Lee <tom@cybint.io>
+Build-Depends:
+ debhelper-compat (= 13),
+ librsvg2-bin,
+ optipng,
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Vcs-Git: https://gitlab.com/cybint-linux/packages/cybint-themes.git
+Vcs-Browser: https://gitlab.com/cybint-linux/packages/cybint-themes
+
+Package: cybint-themes
+Architecture: all
+Depends:
+ desktop-base,
+ fonts-cantarell,
+ fonts-firacode,
+ gtk2-engines-pixbuf,
+ librsvg2-common,
+ plymouth-label,
+ xfce4-whiskermenu-plugin,
+ xfce4-goodies,
+ cherrytree,
+ qterminal,
+ mutt,
+ ${misc:Depends},
+Description: CYBINT's theme package
+ Installing this package should configure most desktops to use the CYBINT theme
+ by default.

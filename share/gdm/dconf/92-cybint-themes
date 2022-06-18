@@ -1,0 +1,4 @@
+# Login manager options
+# =====================
+[org/gnome/login-screen]
+logo='/usr/share/images/cybint-logos/logo-text-128.png'

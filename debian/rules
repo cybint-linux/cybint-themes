@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	dh_install
+	@bash  diverts.sh
+
+# Move config files that we divert into /usr/share/cybint-themes/etc/*
+# and let them be installed by the postinst
+# for file in $(shell cat files-to-divert); do \
+#     mkdir -p debian/cybint-themes/usr/share/cybint-themes$$(dirname $$file); \
+#     mv debian/cybint-themes$$file debian/cybint-themes/usr/share/cybint-themes$$file; \
+# done
+
+# override_dh_installgsettings:
+# 	# With priority 21 settings overrides cybint-defaults (20) and desktop-base (10)
+# 	dh_installgsettings --priority 21

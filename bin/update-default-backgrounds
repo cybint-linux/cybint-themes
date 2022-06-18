@@ -1,0 +1,20 @@
+#!/bin/sh
+
+DESTDIR=share/desktop-base/cybint-theme/
+DESKTOP_BACKGROUND=$1
+LOGIN_BACKGROUND=$2
+
+# login/lockscreen
+ln -sfv ../../../backgrounds/cybint/$LOGIN_BACKGROUND.xml ${DESTDIR}lockscreen/gnome-background.xml
+ln -sfv ../../../backgrounds/cybint/$LOGIN_BACKGROUND-16x9.png ${DESTDIR}login/background
+
+# desktop background
+kde_wallpaper=$(echo $DESKTOP_BACKGROUND | sed -E 's/(^|-)([a-z])/\U\2/g')
+ln -sfv ../../../backgrounds/cybint/$DESKTOP_BACKGROUND.xml ${DESTDIR}wallpaper/gnome-background.xml
+ln -nsfv ../../../wallpapers/$kde_wallpaper/contents ${DESTDIR}wallpaper/contents
+
+sed -i "s/defaultWallpaperTheme=.*/defaultWallpaperTheme=${kde_wallpaper}/" share/plasma/desktoptheme/cybint/metadata.desktop
+
+# default background symlink for XFCE
+mkdir -p share/backgrounds/cybint-16x9
+ln -sf $DESKTOP_BACKGROUND.png share/backgrounds/cybint-16x9/default
